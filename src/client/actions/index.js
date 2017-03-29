@@ -2,6 +2,7 @@ import { requestJson } from '../utils';
 
 export const HEROS_LOADED = 'heros/loaded';
 export const HERO_LOADED = 'hero/loaded';
+export const HERO_CLOSED = 'hero/closed';
 
 const herosLoaded = heros => ({
   type: HEROS_LOADED,
@@ -26,3 +27,7 @@ export const loadHero = characterId => (dispatch) => {
     .then(hero => dispatch(heroLoaded(hero.data.results)))
     .catch(err => console.log('error: ', err))
 }
+
+export const closeHero = () => ({
+  type: HERO_CLOSED,
+});
