@@ -13,8 +13,8 @@ export const loadHeros = () => (dispatch) => {
   const uri = '/v1/public/characters';
   requestJson(uri)
     .then(data => dispatch(herosLoaded(data.data.results)))
-    .catch(err => console.log('error: ', err))
-}
+    .catch(err => console.log('error: ', err));
+};
 
 const heroLoaded = hero => ({
   type: HERO_LOADED,
@@ -25,8 +25,8 @@ export const loadHero = characterId => (dispatch) => {
   const uri = `/v1/public/characters/${characterId}`;
   requestJson(uri)
     .then(hero => dispatch(heroLoaded(hero.data.results)))
-    .catch(err => console.log('error: ', err))
-}
+    .catch(err => console.log('error: ', err));
+};
 
 export const closeHero = () => ({
   type: HERO_CLOSED,

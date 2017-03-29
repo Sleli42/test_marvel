@@ -12,11 +12,11 @@ const Container = styled.ul`
 `;
 
 const DisplayListHeros = ({ heros, loadHero }) =>
-  <Container>{R.map(hero => <CurrentHero hero={hero} loadHero={loadHero} key={hero.name} />)(heros)}</Container>
+  <Container>{R.map(hero => <CurrentHero hero={hero} loadHero={loadHero} key={hero.name} />)(heros)}</Container>;
 
 DisplayListHeros.propTypes = {
   heros: PropTypes.array.isRequired,
   loadHero: PropTypes.func.isRequired,
-}
+};
 
 export default DisplayListHeros;

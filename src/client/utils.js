@@ -21,5 +21,5 @@ export const requestJson = (uri, { method = 'GET' } = {}) => {
   return fetch(`${baseUrl}${uri}?ts=${ts}&apikey=${publicApi}&hash=${hash}`, params)
     .then(checkStatus)
     .then(parserJson)
-    .catch(err => console.log('error: ', err))
-}
+    .catch(err => console.log('error: ', err));
+};

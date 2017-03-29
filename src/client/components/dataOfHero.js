@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import R from 'ramda';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -27,10 +26,18 @@ const Item = styled.li`
 `;
 
 const ListSeries = ({ series }) =>
-  <ul>{ series.map((serie, index) => <Item key={index}>{serie.name}</Item>) }</ul>
+  <ul>{ series.map((serie, index) => <Item key={index}>{serie.name}</Item>) }</ul>;
+
+ListSeries.propTypes = {
+  series: PropTypes.array.isRequired,
+};
 
 const ListComics = ({ comics }) =>
-  <ul>{ comics.map((comic, index) => <Item key={index}>{comic.name}</Item>) }</ul>
+  <ul>{ comics.map((comic, index) => <Item key={index}>{comic.name}</Item>) }</ul>;
+
+ListComics.propTypes = {
+  comics: PropTypes.array.isRequired,
+};
 
 const DisplayDataOfHero = ({ hero, closeHero }) => {
   const { name, description, series, comics, thumbnail } = hero[0];
@@ -58,12 +65,12 @@ const DisplayDataOfHero = ({ hero, closeHero }) => {
         </div>
       </ContainerRight>
     </Container>
-  )
-}
+  );
+};
 
 DisplayDataOfHero.propTypes = {
   hero: PropTypes.array.isRequired,
   closeHero: PropTypes.func.isRequired,
-}
+};
 
 export default DisplayDataOfHero;

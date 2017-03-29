@@ -33,11 +33,11 @@ const CurrentHero = ({ hero, loadHero }) => {
       <Button onClick={() => loadHero(id)}>More Infos</Button>
     </Item>
   );
-}
+};
 
 CurrentHero.propTypes = {
   hero: PropTypes.object.isRequired,
   loadHero: PropTypes.func.isRequired,
-}
+};
 
 export default CurrentHero;
