@@ -1,4 +1,5 @@
-import { requestJson } from '../utils';
+import { requestServer } from '../utils';
+import 'universal-fetch';
 
 export const HEROS_LOADED = 'heros/loaded';
 export const HERO_LOADED = 'hero/loaded';
@@ -10,9 +11,9 @@ const herosLoaded = heros => ({
 });
 
 export const loadHeros = () => (dispatch) => {
-  const uri = '/v1/public/characters';
-  requestJson(uri)
-    .then(data => dispatch(herosLoaded(data.data.results)))
+  console.log("LOAD_HEROS ...");
+  requestServer('api/heros')
+    .then((data) => dispatch(herosLoaded(data)))
     .catch(err => console.log('error: ', err));
 };
 
@@ -21,10 +22,10 @@ const heroLoaded = hero => ({
   payload: hero,
 });
 
-export const loadHero = characterId => (dispatch) => {
-  const uri = `/v1/public/characters/${characterId}`;
-  requestJson(uri)
-    .then(hero => dispatch(heroLoaded(hero.data.results)))
+export const loadHero = id => (dispatch) => {
+  const uri = `api/hero/${id}`;
+  requestServer(uri)
+    .then(hero => dispatch(heroLoaded(hero)))
     .catch(err => console.log('error: ', err));
 };
 
