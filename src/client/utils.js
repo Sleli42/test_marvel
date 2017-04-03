@@ -1,4 +1,5 @@
-import 'whatwg-fetch';
+// import 'whatwg-fetch';
+import 'fetch-everywhere';
 import crypto from 'crypto';
 
 const checkStatus = (result) => {
