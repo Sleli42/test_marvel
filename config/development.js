@@ -1,3 +1,4 @@
+const server = { host: '0.0.0.0', port: 3004 };
 module.exports = {
   // devtool: 'eval-source-map',
   devtool: 'cheap-module-eval-source-map',
@@ -10,5 +11,5 @@ module.exports = {
     host: '0.0.0.0',
     port: 3000,
   },
+  server,
 }
-
